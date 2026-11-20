@@ -53,14 +53,46 @@
   }
   .avatar {
     width: 96px; height: 96px;
+    padding: 0;
     border-radius: 50%;
     background: var(--surface);
     border: 2px solid var(--accent);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 36px;
+    overflow: hidden;
     margin: 0 auto 16px;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
   }
-  h1 { margin: 0 0 4px; font-size: 1.6rem; }
+  .avatar:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 18px color-mix(in srgb, var(--accent) 55%, transparent);
+  }
+  .avatar:focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 4px;
+  }
+  .avatar img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+  }
+  h1 { margin: 0 0 4px; font-size: 1.6rem; min-height: 1.2em; }
+  .typing-name {
+    display: inline-block;
+  }
+  .typing-name::after {
+    content: "";
+    display: inline-block;
+    width: 2px;
+    height: 1em;
+    margin-left: 4px;
+    background: var(--accent);
+    vertical-align: -0.12em;
+    animation: blink 0.7s step-end infinite;
+  }
+  @keyframes blink {
+    50% { opacity: 0; }
+  }
   .role { color: var(--accent); font-weight: 600; margin: 0 0 8px; }
   .sub { color: var(--muted); font-size: 0.95rem; }
   section {
@@ -112,8 +144,10 @@
 <body>
   <div class="wrap">
     <header>
-      <div class="avatar">wok</div>
-      <h1>Fahmi Ferdiansyah</h1>
+      <button class="avatar" type="button" aria-label="Ganti foto Obito menjadi perisai">
+        <img src="obito.svg" alt="Foto Obito">
+      </button>
+      <h1><span class="typing-name" aria-label="Fahmi Ferdiansyah"></span></h1>
       <p class="role">Ethical Hacker &amp; Penetration Tester</p>
       <p class="sub">Mahasiswa Sistem Informasi Institut Teknologi Bisnis dan Swardharma</p>
     </header>
@@ -156,5 +190,36 @@
 
     <footer>Portofolio pribadi Fahmi Ferdiansyah</footer>
   </div>
+  <script>
+    const avatarButton = document.querySelector(".avatar");
+    const avatarImage = avatarButton.querySelector("img");
+    let showingObito = true;
+
+    avatarButton.addEventListener("click", () => {
+      showingObito = !showingObito;
+      avatarImage.src = showingObito ? "obito.svg" : "shield.svg";
+      avatarImage.alt = showingObito ? "Foto Obito" : "Foto perisai";
+      avatarButton.setAttribute(
+        "aria-label",
+        showingObito
+          ? "Ganti foto Obito menjadi perisai"
+          : "Ganti foto perisai menjadi Obito"
+      );
+    });
+
+    const nameElement = document.querySelector(".typing-name");
+    const name = "Fahmi Ferdiansyah";
+    let characterIndex = 0;
+
+    function typeName() {
+      if (characterIndex < name.length) {
+        nameElement.textContent += name[characterIndex];
+        characterIndex++;
+        setTimeout(typeName, 120);
+      }
+    }
+
+    setTimeout(typeName, 300);
+  </script>
 </body>
 </html>
