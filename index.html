@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Fahmi Ferdiansyah — Ethical Hacker</title>
+<style>
+  :root {
+    --bg: #0f1216;
+    --surface: #171b21;
+    --text: #e8eaed;
+    --muted: #9aa3ad;
+    --accent: #3ddc84;
+    --border: #262b33;
+    color-scheme: dark;
+  }
+  @media (prefers-color-scheme: light) {
+    :root:not([data-theme="dark"]) {
+      --bg: #f7f8fa;
+      --surface: #ffffff;
+      --text: #15181d;
+      --muted: #5b6470;
+      --accent: #1f9d5a;
+      --border: #e3e6ea;
+      color-scheme: light;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0f1216;
+    --surface: #171b21;
+    --text: #e8eaed;
+    --muted: #9aa3ad;
+    --accent: #3ddc84;
+    --border: #262b33;
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0; padding: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  .wrap {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 48px 24px 64px;
+  }
+  header {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  .avatar {
+    width: 96px; height: 96px;
+    border-radius: 50%;
+    background: var(--surface);
+    border: 2px solid var(--accent);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 36px;
+    margin: 0 auto 16px;
+  }
+  h1 { margin: 0 0 4px; font-size: 1.6rem; }
+  .role { color: var(--accent); font-weight: 600; margin: 0 0 8px; }
+  .sub { color: var(--muted); font-size: 0.95rem; }
+  section {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 24px;
+    margin-bottom: 20px;
+  }
+  section h2 {
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--muted);
+    margin: 0 0 14px;
+  }
+  .badges {
+    display: flex; flex-wrap: wrap; gap: 8px;
+  }
+  .badge {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: 0.9rem;
+  }
+  .cert {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 12px 0; border-bottom: 1px solid var(--border);
+    gap: 12px; flex-wrap: wrap;
+  }
+  .cert:last-child { border-bottom: none; }
+  .cert-name { font-weight: 600; }
+  .cert-org { color: var(--muted); font-size: 0.85rem; }
+  .contact a {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 600;
+  }
+  .contact a:hover { text-decoration: underline; }
+  footer {
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.8rem;
+    margin-top: 32px;
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="avatar">wok</div>
+      <h1>Fahmi Ferdiansyah</h1>
+      <p class="role">Ethical Hacker &amp; Penetration Tester</p>
+      <p class="sub">Mahasiswa Sistem Informasi Institut Teknologi Bisnis dan Swardharma</p>
+    </header>
+
+    <section>
+      <h2>Tentang</h2>
+      <p>sedang fokus  dibidang <strong>Ethical Hacking</strong>, khususnya penetration testing (pentest). Aktif mengikuti program pelatihan keamanan siber dari Cisco dan terus mengasah kemampuan di bidang cybersecurity.</p>
+    </section>
+
+    <section>
+      <h2>Keahlian</h2>
+      <div class="badges">
+        <span class="badge">Ethical Hacking</span>
+        <span class="badge">Penetration Testing</span>
+        <span class="badge">Cybersecurity Fundamentals</span>
+        <span class="badge">Network Security</span>
+      </div>
+    </section>
+
+    <section>
+      <h2>Sertifikasi</h2>
+      <div class="cert">
+        <div>
+          <div class="cert-name">Ethical Hacking</div>
+          <div class="cert-org">Cisco Networking Academy</div>
+        </div>
+      </div>
+      <div class="cert">
+        <div>
+          <div class="cert-name">Introduction to Cybersecurity</div>
+          <div class="cert-org">Cisco Networking Academy</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact">
+      <h2>Kontak</h2>
+      <p>Instagram: <a href="https://instagram.com/_filayy" target="_blank" rel="noopener">@_filayy</a></p>
+    </section>
+
+    <footer>Portofolio pribadi Fahmi Ferdiansyah</footer>
+  </div>
+</body>
+</html>
